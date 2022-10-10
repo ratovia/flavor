@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "openapi:bundle": "openapi-merge-cli -c openapi-merge.config.json",
-    "openapi": "yarn run openapi:bundle"
+    "openapi:generate": "openapi-generator-cli generate -g typescript-axios -i ./api/bundle.json -o ./types/typescript-axios",
+    "openapi": "npm run openapi:bundle && npm run openapi:generate"
   },
   "dependencies": {
     "next": "12.3.1",

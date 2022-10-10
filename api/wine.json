@@ -13,7 +13,9 @@
     "/wines": {
       "get": {
         "summary": "wineの一覧",
-        "tags": [],
+        "tags": [
+          "wine"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -40,7 +42,9 @@
     "/wine/{wine_id}": {
       "get": {
         "summary": "ワインの情報を取得",
-        "tags": [],
+        "tags": [
+          "wine"
+        ],
         "responses": {
           "200": {
             "description": "OK",
