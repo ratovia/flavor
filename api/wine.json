@@ -1,0 +1,125 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "wine",
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000"
+    }
+  ],
+  "paths": {
+    "/wines": {
+      "get": {
+        "summary": "wineの一覧",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "wines": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Wine"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-wines"
+      }
+    },
+    "/wine/{wine_id}": {
+      "get": {
+        "summary": "ワインの情報を取得",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "wine": {
+                      "$ref": "#/components/schemas/Wine"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-wine-:wine_id"
+      },
+      "parameters": [
+        {
+          "schema": {
+            "type": "number"
+          },
+          "name": "wine_id",
+          "in": "path",
+          "required": true
+        }
+      ]
+    }
+  },
+  "components": {
+    "schemas": {
+      "Wine": {
+        "title": "Wine",
+        "x-stoplight": {
+          "id": "5bcenv54tdaed"
+        },
+        "type": "object",
+        "description": "ワイン",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "brand": {
+            "type": "string"
+          },
+          "year": {
+            "type": "string"
+          },
+          "price": {
+            "type": "string"
+          },
+          "producer_name": {
+            "type": "string"
+          },
+          "varietals": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Varietal"
+            }
+          }
+        }
+      },
+      "Varietal": {
+        "title": "Varietal",
+        "x-stoplight": {
+          "id": "zfgk2tdn99ldk"
+        },
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

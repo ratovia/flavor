@@ -1,0 +1,8 @@
+{
+  "inputs": [
+    {
+      "inputFile": "api/wine.json"
+    }
+  ],
+  "output": "api/bundle.json"
+}

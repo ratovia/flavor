@@ -16,9 +16,9 @@ services:
     ports:
       - "8002:8080"
     volumes:
-      - ./api/bundle.json:/bundle.json
+      - ./api/bundle.json:/api.json
     environment:
-      SWAGGER_JSON: /bundle.json
+      SWAGGER_JSON: /api.json
 
   # swagger-api:
   #   image: stoplight/prism:3
